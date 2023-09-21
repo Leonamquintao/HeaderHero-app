@@ -34,11 +34,22 @@ const SegmentHeader = ({scrollPosition, bannerHeight}: SegmentHeaderProps) => {
         backgroundColor="transparent"
         translucent
       />
-      <View style={styles.container(safeArea, isFloating, isTransparent)}>
-        <Text style={styles.title(isTransparent)}>HE logo</Text>
-        <Text style={styles.title(isTransparent)}>Segment Here</Text>
-        <Text style={styles.title(isTransparent)}>Icon</Text>
-      </View>
+      {isTransparent && (
+        <View style={styles.container(safeArea, isFloating, isTransparent)}>
+          <Text style={styles.title(isTransparent)}>HE logo</Text>
+          <Text style={styles.title(isTransparent)}>Segment Here</Text>
+          <Text style={styles.title(isTransparent)}>Icon</Text>
+        </View>
+      )}
+      {!isTransparent && (
+        <View style={styles.container(safeArea, isFloating, isTransparent)}>
+          <View style={styles.inputBox}>
+            <Text style={styles.title(isTransparent)}>
+              Find a Place to stay
+            </Text>
+          </View>
+        </View>
+      )}
     </>
   );
 };
@@ -53,10 +64,10 @@ const styles = {
     paddingHorizontal: 20,
     flexDirection: 'row',
     marginBottom: isFloating ? -TOP_HEADER_HIGHT - safeArea.top : 0,
-    height: TOP_HEADER_HIGHT + safeArea.top,
+    height: TOP_HEADER_HIGHT + safeArea.top + (!isTransparent ? 10 : 0),
     justifyContent: 'space-between',
     shadowOffset: {y: 0},
-    backgroundColor: isTransparent ? '#0001' : '#FFF',
+    backgroundColor: isTransparent ? '#0000' : '#FFF',
     shadowOpacity: isTransparent ? 0 : 0.5,
     elevation: isTransparent ? 0.01 : 5,
     zIndex: 100,
@@ -67,6 +78,14 @@ const styles = {
     fontSize: 16,
     color: isTransparent ? '#FFF' : '#000',
   }),
+  inputBox: {
+    flex: 1,
+    alignItems: 'center',
+    backgroundColor: '#f0eded',
+    height: 46,
+    justifyContent: 'center',
+    borderRadius: 30,
+  },
 };
 
 export default SegmentHeader;

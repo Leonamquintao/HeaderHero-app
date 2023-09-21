@@ -97,19 +97,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     letterSpacing: 2,
     color: '#FFF',
-    marginBottom: 20,
   },
   findStayBtn: {
     backgroundColor: '#FFF',
     alignItems: 'center',
     width: windowWidth - 30,
-    height: 36,
+    height: 46,
     borderRadius: 20,
     justifyContent: 'center',
   },
   content: {
     flex: 1,
-    marginVertical: 10,
     marginHorizontal: 20,
   },
   title: {

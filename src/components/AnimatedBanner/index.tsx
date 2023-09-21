@@ -16,7 +16,8 @@ const AnimatedBanner = ({
       source={require('../../assets/banner.jpg')}
       style={{
         height: bannerHeight,
-        width: '170%',
+        width: '180%',
+        resizeMode: 'cover',
         transform: [
           {
             translateY: scrollPosition.interpolate({
