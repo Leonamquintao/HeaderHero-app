@@ -1,5 +1,13 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, StatusBar, Animated} from 'react-native';
+import {
+  View,
+  Text,
+  StatusBar,
+  Animated,
+  StyleProp,
+  TextStyle,
+  ViewStyle,
+} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 export const TOP_HEADER_HIGHT = 50;
@@ -59,20 +67,19 @@ const styles = {
     safeArea: {top: number},
     isFloating: boolean,
     isTransparent: boolean,
-  ) => ({
+  ): StyleProp<ViewStyle> => ({
     paddingTop: safeArea.top,
     paddingHorizontal: 20,
     flexDirection: 'row',
+    justifyContent: 'space-between',
     marginBottom: isFloating ? -TOP_HEADER_HIGHT - safeArea.top : 0,
     height: TOP_HEADER_HIGHT + safeArea.top + (!isTransparent ? 10 : 0),
-    justifyContent: 'space-between',
-    shadowOffset: {y: 0},
     backgroundColor: isTransparent ? '#0000' : '#FFF',
     shadowOpacity: isTransparent ? 0 : 0.5,
     elevation: isTransparent ? 0.01 : 5,
     zIndex: 100,
   }),
-  title: (isTransparent: boolean) => ({
+  title: (isTransparent: boolean): StyleProp<TextStyle> => ({
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 16,
@@ -86,6 +93,6 @@ const styles = {
     justifyContent: 'center',
     borderRadius: 30,
   },
-};
+} as const;
 
 export default SegmentHeader;
