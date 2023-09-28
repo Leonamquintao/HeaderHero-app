@@ -16,7 +16,7 @@ const AnimatedBanner = ({
       source={require('../../assets/banner.jpg')}
       style={{
         height: bannerHeight,
-        width: '180%',
+        width: '200%',
         resizeMode: 'cover',
         transform: [
           {

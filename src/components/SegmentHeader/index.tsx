@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
-export const TOP_HEADER_HIGHT = 50;
+export const TOP_HEADER_HIGHT = 70;
 
 interface SegmentHeaderProps {
   scrollPosition: Animated.Value;
@@ -92,6 +92,7 @@ const styles = {
     height: 46,
     justifyContent: 'center',
     borderRadius: 30,
+    marginTop: 20,
   },
 } as const;
 
